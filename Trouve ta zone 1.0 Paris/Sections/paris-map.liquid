@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Map Selector</title>
+
+    <meta charset="UTF-8" lang="fr">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+
+
+
+</head>
+
+<body>
+
+    <main>
+
+        <div class="container paris_container">
+            <div class="paris_maps_container">
+                <!--Map Include Here-->
+            </div>
+        </div>
+      
+		<div class="error_container" hidden>
+  			<div class="error_content">
+              <p>{{ section.settings.nomarket }}</p>
+  			</div>
+		</div>
+      
+        <div class="container sub_container">
+            <div id="list_container1" hidden>
+                <title>Marché dans le 1er arrondissement de Paris</title>
+                {% for block in section.blocks %}
+                {%if block.settings.code == "1" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+
+
+            </div>
+
+            <div id="list_container2" hidden>
+                <title>Marché dans le 2ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "2" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+
+            </div>
+            <div id="list_container3" hidden>
+                <title>Marché dans le 3ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "3" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container4" hidden>
+                <title>Marché dans le 4ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "4" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container5" hidden>
+                <title>Marché dans le 5ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "5" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+
+            </div>
+            <div id="list_container6" hidden>
+                <title>Marché dans le 6ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "6" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container7" hidden>
+                <title>Marché dans le 7ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "7" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container8" hidden>
+                <title>Marché dans le 8ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "8" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+            <div id="list_container9" hidden>
+                <title>Marché dans le 9ème arrondissement de Paris</title>
+                {% for block in section.blocks %}
+                {%if block.settings.code == "9" %}
+                <div class="row_container">
+
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container10" hidden>
+                <title>Marché dans le 10ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "10" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container11" hidden>
+                <title>Marché dans le 11ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "11" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+            <div id="list_container12" hidden>
+                <title>Marché dans le 12ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "12" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container13" hidden>
+                <title>Marché dans le 13ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "13" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container14" hidden>
+                <title>Marché dans le 14èMe arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "14" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container15" hidden>
+                <title>Marché dans le 15ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "15" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+
+            </div>
+            <div id="list_container16" hidden>
+                <title>Marché dans le 16ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "16" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+            <div id="list_container17" hidden>
+                <title>Marché dans le 17ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "17" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+            <div id="list_container18" hidden>
+                <title>Marché dans le 18ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "18" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+            <div id="list_container19" hidden>
+                <title>Marché dans le 19ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "19" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {% if block.settings.market_product == true %}
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+            <div id="list_container20" hidden>
+                <title>Marché dans le 20ème arrondissement de Paris</title>
+
+                {% for block in section.blocks %}
+                {%if block.settings.code == "20" %}
+                <div class="row_container">
+                    <div class="row_content" onclick="showBox({% increment my_counter %})">
+                        <div class="content flex_row_container" style="background-color:{{block.settings.color_bg}}">
+
+                            <div class="image_content">
+                                <img src="{{ block.settings.logo | img_url:'master'}}" alt="Image du marché">
+                            </div>
+
+                            <div class="body_container">
+
+                                <div class="flex_row_container large_auto_box"
+                                    style="background-color:{{block.settings.color_bg}}">
+
+                                    <div class="flex_col_container flex_1_box">
+                                        <div class="location_content">
+                                            <p style="color:{{block.settings.color_text}}">{{ block.settings.location }}
+                                            </p>
+                                        </div>
+
+                                        <div class="description_content flex_1_box">
+                                            <p style="color:{{block.settings.color_text}}">
+                                                {{ block.settings.description }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_container">
+                                        <div class="btn_box">
+                                            <a href="{{ block.settings.link }}"><button class="btn_choose"
+                                                    style="background-color:{{block.settings.color_btton}};color:{{block.settings.color_text_btton}}">{{ block.settings.linktext }}</button></a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        {% if block.settings.market_product == true %}
+
+                        <div class="hover_container" style="background-color:{{block.settings.col_bg_market}}">
+                            <div class="content hover_content">
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec1 | img_url:'master'}}"
+                                            alt="Product image 1">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market1}}">
+                                            {{ block.settings.collection1 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec2 | img_url:'master'}}"
+                                            alt="Product image 2">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market2}}">
+                                            {{ block.settings.collection2 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec3 | img_url:'master'}}"
+                                            alt="Product image 3">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market3}}">
+                                            {{ block.settings.collection3 }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="product_container flex_1_box">
+                                    <div class="hover_body">
+                                        <img src="{{ block.settings.img_collec4 | img_url:'master'}}"
+                                            alt="Product image 4">
+                                        <p class="img_title" style="color:{{block.settings.col_text_market4}}">
+                                            {{ block.settings.collection4 }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+{% schema %}
+{
+    "name": {
+        "en": "Find your zone",
+        "fr": "Trouve ta zone"
+    },
+    "presets": [
+        {
+            "category": "map",
+            "name": {
+                "en": "Find your zone",
+                "fr": "Trouve ta zone"
+            }
+        }
+    ],
+    "settings": [
+        {
+            "id": "nomarket",
+            "type": "text",
+            "label": {
+                "en": "Text for no Market",
+                "fr": "Texte pour aucun marché"
+            },
+            "default": {
+                "en": "No market availible for now",
+                "fr": "Pas de Marché disponible pour le moment"
+            }
+        }
+    ],
+    "blocks": [
+        {
+            "name": {
+                "en": "Market",
+                "fr": "Marché"
+            },
+            "type": "image",
+            "settings": [
+                {
+                    "id": "code",
+                    "type": "select",
+                    "label": {
+                        "en": "District",
+                        "fr": "Arrondissement"
+                    },
+                    "options": [
+                        {
+                            "value": "1",
+                            "label": {
+                                "en": "1st District",
+                                "fr": "1er Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "2",
+                            "label": {
+                                "en": "2nd District",
+                                "fr": "2e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "3",
+                            "label": {
+                                "en": "3rd District",
+                                "fr": "3e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "4",
+                            "label": {
+                                "en": "4th District",
+                                "fr": "4e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "5",
+                            "label": {
+                                "en": "5th District",
+                                "fr": "5e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "6",
+                            "label": {
+                                "en": "6th District",
+                                "fr": "6e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "7",
+                            "label": {
+                                "en": "7th District",
+                                "fr": "7e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "8",
+                            "label": {
+                                "en": "8th District",
+                                "fr": "8e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "9",
+                            "label": {
+                                "en": "9th District",
+                                "fr": "9e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "10",
+                            "label": {
+                                "en": "10th District",
+                                "fr": "10e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "11",
+                            "label": {
+                                "en": "11th District",
+                                "fr": "11e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "12",
+                            "label": {
+                                "en": "12th District",
+                                "fr": "12e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "13",
+                            "label": {
+                                "en": "13th District",
+                                "fr": "13e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "14",
+                            "label": {
+                                "en": "14th District",
+                                "fr": "14e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "15",
+                            "label": {
+                                "en": "15th District",
+                                "fr": "15e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "16",
+                            "label": {
+                                "en": "16th District",
+                                "fr": "16e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "17",
+                            "label": {
+                                "en": "17th District",
+                                "fr": "17e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "18",
+                            "label": {
+                                "en": "18th District",
+                                "fr": "18e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "19",
+                            "label": {
+                                "en": "19th District",
+                                "fr": "19e Arrondissement"
+                            }
+                        },
+                        {
+                            "value": "20",
+                            "label": {
+                                "en": "20th District",
+                                "fr": "20e Arrondissement"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "location",
+                    "type": "text",
+                    "label": {
+                        "en": "Location here",
+                        "fr": "Localisation ici"
+                    },
+                    "default": {
+                        "en": "Insert Location here",
+                        "fr": "Inserer la localisation ici"
+                    }
+                },
+                {
+                    "id": "description",
+                    "type": "textarea",
+                    "label": "Description",
+                    "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a facilisis mauris, nec egestas lectus. Proinvel nisi laoreet dui dictum cursus eu sed dui."
+                },
+                {
+                    "type": "color",
+                    "id": "color_bg",
+                    "label": {
+                        "en": "Background color",
+                        "fr": "Couleur d'arrière-plan"
+                    },
+                    "default": "#629460"
+                },
+                {
+                    "type": "color",
+                    "id": "color_text",
+                    "label": {
+                        "en": "Text color",
+                        "fr": "Couleur texte"
+                    },
+                    "default": "#F6F6F6"
+                },
+                {
+                    "type": "color",
+                    "id": "color_btton",
+                    "label": {
+                        "en": "Button color",
+                        "fr": "Couleur bouton"
+                    },
+                    "default": "#FF6327"
+                },
+                {
+                    "type": "color",
+                    "id": "color_text_btton",
+                    "label": {
+                        "en": "Button text color",
+                        "fr": "Couleur texte bouton"
+                    },
+                    "default": "#F6F6F6"
+                },
+                {
+                    "id": "link",
+                    "type": "url",
+                    "label": {
+                        "en": "Button link",
+                        "fr": "Lien du bouton"
+                    }
+                },
+                {
+                    "id": "linktext",
+                    "type": "text",
+                    "label": {
+                        "en": "Button text",
+                        "fr": "Texte boutton"
+                    },
+                    "default": {
+                        "en": "Click Here",
+                        "fr": "Cliquer ici"
+                    }
+                },
+                {
+                    "type": "image_picker",
+                    "id": "logo",
+                    "label": {
+                        "en": "Image Market",
+                        "fr": "Image Marché"
+                    }
+                },
+                {
+                    "type": "checkbox",
+                    "id": "market_product",
+                    "default": true,
+                    "label": {
+                        "en": "Show Market Collections",
+                        "fr": "Montré les Collections du Marché"
+                    }
+                },
+                {
+                    "type": "color",
+                    "id": "col_bg_market",
+                    "label": {
+                        "en": "Market background color",
+                        "fr": "Couleur de l'arrière-plan marché"
+                    },
+                    "default": "#96BE8C"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_collec1",
+                    "label": {
+                        "en": "Image Collection 1",
+                        "fr": "Image de Collection 1"
+                    }
+                },
+                {
+                    "id": "collection1",
+                    "type": "text",
+                    "label": {
+                        "en": "Collection Name 1",
+                        "fr": "Nom de Collection 1"
+                    },
+                    "default": {
+                        "en": "Insert Collection Name 1",
+                        "fr": "Inserer nom de Collection 1"
+                    }
+                },
+                {
+                    "type": "color",
+                    "id": "col_text_market1",
+                    "label": {
+                        "en": "Collection text color 1",
+                        "fr": "Couleur texte Collection 1"
+                    },
+                    "default": "#000000"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_collec2",
+                    "label": {
+                        "en": "Image Collection 2",
+                        "fr": "Image de Collection 2"
+                    }
+                },
+                {
+                    "id": "collection2",
+                    "type": "text",
+                    "label": {
+                        "en": "Collection Name 2",
+                        "fr": "Nom de Collection 2"
+                    },
+                    "default": {
+                        "en": "Insert Collection Name 2",
+                        "fr": "Inserer nom de Collection 2"
+                    }
+                },
+                {
+                    "type": "color",
+                    "id": "col_text_market2",
+                    "label": {
+                        "en": "Collection text color 2",
+                        "fr": "Couleur texte Collection 2"
+                    },
+                    "default": "#000000"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_collec3",
+                    "label": {
+                        "en": "Image Collection 3",
+                        "fr": "Image de Collection 3"
+                    }
+                },
+                {
+                    "id": "collection3",
+                    "type": "text",
+                    "label": {
+                        "en": "Collection Name 3",
+                        "fr": "Nom de Collection 3"
+                    },
+                    "default": {
+                        "en": "Insert Collection Name 3",
+                        "fr": "Inserer nom de Collection 3"
+                    }
+                },
+                {
+                    "type": "color",
+                    "id": "col_text_market3",
+                    "label": {
+                        "en": "Collection text color 3",
+                        "fr": "Couleur texte Collection 3"
+                    },
+                    "default": "#000000"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "img_collec4",
+                    "label": {
+                        "en": "Image Collection 4",
+                        "fr": "Image de Collection 4"
+                    }
+                },
+                {
+                    "id": "collection4",
+                    "type": "text",
+                    "label": {
+                        "en": "Collection Name 4",
+                        "fr": "Nom de Collection 4"
+                    },
+                    "default": {
+                        "en": "Insert Collection Name 4",
+                        "fr": "Inserer nom de Collection 4"
+                    }
+                },
+                {
+                    "type": "color",
+                    "id": "col_text_market4",
+                    "label": {
+                        "en": "Collection text color 4",
+                        "fr": "Couleur texte Collection 4"
+                    },
+                    "default": "#000000"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
+{{ 'style.css' | asset_url | stylesheet_tag }}
+{{ 'app.js' | asset_url | script_tag }}
+{{ 'map.js' | asset_url | script_tag }}
